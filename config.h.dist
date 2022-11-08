@@ -1,0 +1,35 @@
+#define SLEEP_TIME 60000
+#define LED_BUILTIN 2
+
+#define WIFI_AP "wifi name"
+#define WIFI_PASSWORD "wifi password"
+
+#define MQTT_CLIENT_ID "mqtt client id"
+#define MQTT_CLIENT_USER "mqtt user if required"
+#define MQTT_CLIENT_PASSWORD "mqtt user password if required"
+#define MQTT_TOPIC_PREFIX ""
+#define MQTT_SERVER_ADDRESS "ip address"
+#define MQTT_SERVER_PORT 1883
+#define MQTT_MESSAGE_RETAIN true
+
+#ifdef ENABLE_THINGSPEAK
+  #define THINGSPEAK_CHANNEL 0000
+  #define THINGSPEAK_API_KEY "api key"
+
+  #ifdef DEBUG
+    #define PRINT_DEBUG_MESSAGES 1
+  #endif
+#endif
+
+#ifdef DEBUG
+ #define DEBUG_OUT(str) \
+   Serial.print(millis()); \
+   Serial.print(": "); \
+   Serial.print(__FUNCTION__); \
+   Serial.print("():"); \
+   Serial.print(__LINE__); \
+   Serial.print(' '); \
+   Serial.println(str);
+#else
+ #define DEBUG_OUT(str)
+#endif
